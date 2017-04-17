@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="action_settings">Settings</string>
+    <string name="marvel_public_key">f9b23771caca3a9400b5d31a478d5363</string>
+    <string name="marvel_private_key">c1fa9f6a9ff0eef9ee0b36cb7d07014cc7aa6c77</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_url">%1$s . %2$s</string>
+    <string name="search">Search</string>
+    <string name="title_activity_comics_detail_page">ComicsDetailPageActivity</string>
+    <string name="title_activity_characters_detail_page">CharactersDetailPageActivity</string>
+
+</resources>
