@@ -1,4 +1,4 @@
-package com.marvel.sample.fragments;
+package com.marvel.sample.fragments.comic;
 
 
 import android.content.Context;
@@ -18,11 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.marvel.sample.R;
-import com.marvel.sample.fragments.adapters.ComicsAdapter;
+import com.marvel.sample.adapters.ComicsAdapter;
 import com.marvel.sample.fragments.models.ComicsResponse;
-import com.marvel.sample.mvp.ComicsPresenter;
-import com.marvel.sample.mvp.IComicsPresenter;
-import com.marvel.sample.mvp.IComicsView;
 import com.marvel.sample.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -39,8 +36,7 @@ public class ComicsFragment extends Fragment implements IComicsView, SearchView.
     private ComicsAdapter comicsAdapter;
     private List<ComicsResponse.Data.Result> dataList = new ArrayList<>();
 
-    @BindView(R.id.list)
-    RecyclerView list;
+    @BindView(R.id.list) RecyclerView list;
 
     @Override
     public void onAttach(Context context) {

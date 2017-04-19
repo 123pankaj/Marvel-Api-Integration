@@ -3,11 +3,7 @@ package com.marvel.sample.characters;
 import android.util.Log;
 
 import com.google.gson.JsonObject;
-import com.marvel.sample.R;
-import com.marvel.sample.comics.IComicDetailView;
-import com.marvel.sample.controller.MarvelAppController;
-import com.marvel.sample.mvp.ICharactersPresenter;
-import com.marvel.sample.mvp.ICharactersView;
+import com.marvel.sample.constants.MarvelConstants;
 import com.marvel.sample.retroRx.NetworkRequestsService;
 import com.marvel.sample.utils.MarvelUtils;
 
@@ -35,11 +31,9 @@ public class CharactersDetailPresenter implements ICharactersDetailPresenter{
     @Override
     public void getCharacterDetail(int characterId) {
         String ts = String.valueOf(new Date().getTime());
-        String hashKey = ts +
-                MarvelAppController.getMarvelContext().getString(R.string.marvel_private_key)
-                + MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key);
+        String hashKey = ts + MarvelConstants.Marvel_Private_key + MarvelConstants.Marvel_Public_key;
 
-        mCompositeDisposable.add(NetworkRequestsService.getInstance().getCharacterDetail(characterId, MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key), MarvelUtils.md5(hashKey), ts)
+        mCompositeDisposable.add(NetworkRequestsService.getInstance().getCharacterDetail(characterId, MarvelConstants.Marvel_Public_key, MarvelUtils.md5(hashKey), ts)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::comicsResponse, this::comicsError));

@@ -1,11 +1,9 @@
 package com.marvel.sample.comics;
 
-import android.nfc.Tag;
 import android.util.Log;
 
 import com.google.gson.JsonObject;
-import com.marvel.sample.R;
-import com.marvel.sample.controller.MarvelAppController;
+import com.marvel.sample.constants.MarvelConstants;
 import com.marvel.sample.retroRx.NetworkRequestsService;
 import com.marvel.sample.utils.MarvelUtils;
 
@@ -33,11 +31,9 @@ public class ComicsDetailPresenter implements IComicsDetailPresenter {
     @Override
     public void getComicsDetail(int comicsId) {
         String ts = String.valueOf(new Date().getTime());
-        String hashKey = ts +
-                MarvelAppController.getMarvelContext().getString(R.string.marvel_private_key)
-                + MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key);
+        String hashKey = ts + MarvelConstants.Marvel_Private_key + MarvelConstants.Marvel_Public_key;
 
-        mCompositeDisposable.add(NetworkRequestsService.getInstance().getComicsDetails(comicsId, MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key),MarvelUtils.md5(hashKey), ts)
+        mCompositeDisposable.add(NetworkRequestsService.getInstance().getComicsDetails(comicsId, MarvelConstants.Marvel_Public_key,MarvelUtils.md5(hashKey), ts)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::comicsResponse, this::comicsError));

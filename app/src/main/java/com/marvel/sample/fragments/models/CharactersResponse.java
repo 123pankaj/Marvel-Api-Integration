@@ -3,13 +3,14 @@ package com.marvel.sample.fragments.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by pankaj on 4/17/2017.
  */
 
-public class CharactersResponse {
+public class CharactersResponse implements Serializable{
 
     @SerializedName("code")
     @Expose
@@ -89,7 +90,7 @@ public class CharactersResponse {
         this.data = data;
     }
 
-    public class Data {
+    public class Data implements Serializable{
 
         @SerializedName("offset")
         @Expose
@@ -147,7 +148,7 @@ public class CharactersResponse {
             this.results = results;
         }
 
-        public class Result {
+        public class Result implements Serializable{
 
             @SerializedName("id")
             @Expose

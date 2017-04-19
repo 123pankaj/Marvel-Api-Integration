@@ -1,4 +1,4 @@
-package com.marvel.sample.mvp;
+package com.marvel.sample.fragments.comic;
 
 
 /**

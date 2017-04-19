@@ -1,4 +1,4 @@
-package com.marvel.sample.fragments.adapters;
+package com.marvel.sample.adapters;
 
 import android.content.Intent;
 import android.support.v7.widget.AppCompatImageView;

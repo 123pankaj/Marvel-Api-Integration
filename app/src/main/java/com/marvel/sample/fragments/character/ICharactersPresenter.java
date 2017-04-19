@@ -1,4 +1,4 @@
-package com.marvel.sample.mvp;
+package com.marvel.sample.fragments.character;
 
 /**
  * Created by pankaj on 4/16/2017.

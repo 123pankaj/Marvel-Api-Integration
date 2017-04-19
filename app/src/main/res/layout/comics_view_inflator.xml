@@ -12,10 +12,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatImageView
+        <com.marvel.sample.utils.SquareImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:cropToPadding="false"
+            android:transitionName="@string/banner_transition"
             android:adjustViewBounds="true"
             android:scaleType="fitXY" />
 
@@ -26,7 +28,7 @@
             android:background="@android:color/white"
             android:gravity="start|center"
             android:padding="10dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 

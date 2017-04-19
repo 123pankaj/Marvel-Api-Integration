@@ -1,4 +1,4 @@
-package com.marvel.sample.fragments;
+package com.marvel.sample.fragments.character;
 
 
 import android.content.Context;
@@ -18,11 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.marvel.sample.R;
-import com.marvel.sample.fragments.adapters.CharactersAdapter;
+import com.marvel.sample.adapters.CharactersAdapter;
 import com.marvel.sample.fragments.models.CharactersResponse;
-import com.marvel.sample.mvp.CharactersPresenter;
-import com.marvel.sample.mvp.ICharactersPresenter;
-import com.marvel.sample.mvp.ICharactersView;
 import com.marvel.sample.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -36,10 +33,11 @@ public class CharactersFragment extends Fragment implements ICharactersView, Sea
     private boolean _areResourcesLoaded=false;
     private ICharactersPresenter iCharactersPresenter;
     private LinearLayoutManager linearLayoutManager;
-    @BindView(R.id.characterList) RecyclerView characterList;
     private static final String TAG = "CharactersFragment==>";
     private CharactersAdapter charactersAdapter;
     private List<CharactersResponse.Data.Result> dataList = new ArrayList<>();
+
+    @BindView(R.id.characterList) RecyclerView characterList;
 
     @Override
     public void onAttach(Context context) {
@@ -91,7 +89,7 @@ public class CharactersFragment extends Fragment implements ICharactersView, Sea
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        charactersAdapter = new CharactersAdapter(dataList);
+        charactersAdapter = new CharactersAdapter(ctx, dataList);
         characterList.setAdapter(charactersAdapter);
     }
 

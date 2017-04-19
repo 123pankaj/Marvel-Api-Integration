@@ -1,5 +1,6 @@
-package com.marvel.sample.fragments.adapters;
+package com.marvel.sample.adapters;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -29,9 +30,11 @@ public class CharactersAdapter extends RecyclerView.Adapter {
     private List<CharactersResponse.Data.Result> data;
     private static final int TYPE_ITEM = 1;
     private static final int TYPE_PROGRESS_BAR = 2;
+    private Context ctx;
 
-    public CharactersAdapter(List<CharactersResponse.Data.Result> list) {
+    public CharactersAdapter(Context context, List<CharactersResponse.Data.Result> list) {
         this.data = list;
+        this.ctx=context;
     }
 
     @Override
@@ -82,10 +85,7 @@ public class CharactersAdapter extends RecyclerView.Adapter {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener((View v)-> {
-                Intent intent = new Intent(MarvelAppController.getMarvelContext(), CharactersDetailPageActivity.class);
-                intent.putExtra("characterId", data.get(getAdapterPosition()).getId());
-                MarvelAppController.getMarvelContext().startActivity(intent);
-
+                CharactersDetailPageActivity.start(ctx,v, data.get(getAdapterPosition()).getThumbnail().getPath() + ".jpg");
             });
         }
     }

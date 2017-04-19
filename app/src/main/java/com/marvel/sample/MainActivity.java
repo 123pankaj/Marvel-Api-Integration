@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.marvel.sample.adapters.MarvelPagerAdapter;
-import com.marvel.sample.fragments.CharactersFragment;
-import com.marvel.sample.fragments.ComicsFragment;
+import com.marvel.sample.fragments.character.CharactersFragment;
+import com.marvel.sample.fragments.comic.ComicsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

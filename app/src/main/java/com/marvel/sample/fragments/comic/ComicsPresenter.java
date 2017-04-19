@@ -1,9 +1,8 @@
-package com.marvel.sample.mvp;
+package com.marvel.sample.fragments.comic;
 
 import android.util.Log;
 
-import com.marvel.sample.R;
-import com.marvel.sample.controller.MarvelAppController;
+import com.marvel.sample.constants.MarvelConstants;
 import com.marvel.sample.fragments.models.ComicsResponse;
 import com.marvel.sample.retroRx.NetworkRequestsService;
 import com.marvel.sample.utils.MarvelUtils;
@@ -32,11 +31,9 @@ public class ComicsPresenter implements IComicsPresenter {
     @Override
     public void getComicsListFromMarvelServers() {
         String ts = String.valueOf(new Date().getTime());
-        String hashKey = ts +
-                MarvelAppController.getMarvelContext().getString(R.string.marvel_private_key)
-                + MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key);
+        String hashKey = ts + MarvelConstants.Marvel_Private_key + MarvelConstants.Marvel_Public_key;
 
-        mCompositeDisposable.add(NetworkRequestsService.getInstance().getComicsList(offset, 15, MarvelAppController.getMarvelContext().getString(R.string.marvel_public_key), MarvelUtils.md5(hashKey), ts)
+        mCompositeDisposable.add(NetworkRequestsService.getInstance().getComicsList(offset, 15, MarvelConstants.Marvel_Public_key, MarvelUtils.md5(hashKey), ts)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::comicsResponse, this::comicsError));

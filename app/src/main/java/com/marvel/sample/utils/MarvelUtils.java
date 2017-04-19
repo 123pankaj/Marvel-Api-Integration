@@ -1,5 +1,11 @@
 package com.marvel.sample.utils;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
+import com.marvel.sample.controller.MarvelAppController;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -30,5 +36,11 @@ public class MarvelUtils {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static boolean isConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MarvelAppController.getMarvelContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+        return (info != null && info.isConnected());
     }
 }

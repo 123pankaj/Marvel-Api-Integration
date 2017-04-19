@@ -10,5 +10,6 @@
     <string name="search">Search</string>
     <string name="title_activity_comics_detail_page">ComicsDetailPageActivity</string>
     <string name="title_activity_characters_detail_page">CharactersDetailPageActivity</string>
+    <string name="banner_transition">banner</string>
 
 </resources>
